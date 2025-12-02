@@ -54,7 +54,7 @@ export function VideoSection() {
   }
 
   return (
-    <section className="py-6 sm:py-8 px-4 sm:px-6 bg-background">
+    <section className="pb-6 sm:pb-8 px-4 sm:px-6 bg-background">
       <div className="max-w-4xl mx-auto">
         <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-xl sm:shadow-2xl border-2 sm:border-4 border-emerald-100/80 bg-slate-900 animate-in fade-in slide-in-from-bottom-4 duration-700 view-timeline-name:--section view-timeline-axis:block fill-mode-both">
           <div className="relative aspect-video bg-black">
