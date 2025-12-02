@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/card"
 
 const testimonials = [
   {
-    name: "Dra. María González",
+    name: "Dra. Paulina",
     role: "Odontóloga General",
     location: "CDMX",
     result: "+45 pacientes/mes",
@@ -14,9 +14,9 @@ const testimonials = [
     thumbnailUrl: "/testimonio-paulina.jpg",
   },
   {
-    name: "Dr. Carlos Mendoza",
+    name: "Dr. Juarez",
     role: "Especialista en Implantes",
-    location: "Bogotá",
+    location: "MEXICO",
     result: "+30 pacientes generados",
     videoUrl: "https://dental-growthyy.s3.sa-east-1.amazonaws.com/Nuestro+cliente+Dental+Juarez+comparte+su+experiencia+trabajando+con+nosotros+luego+de+unos+meses.+Gracias+Dr+Axel%2C+a+seguir+creciendo.mp4",
     thumbnailUrl: "/dental-juarez.jpg",
@@ -24,7 +24,7 @@ const testimonials = [
   {
     name: "Dr. Pablo",
     role: "Ortodoncia",
-    location: "Lima",
+    location: "MEXICO",
     result: "ROI de 8x",
     videoUrl: "https://dental-growthyy.s3.sa-east-1.amazonaws.com/Testimonio+de+Pablito.mp4",
     thumbnailUrl: "/testimonio-pablito.jpg",
