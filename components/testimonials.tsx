@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import { Play, Pause, Volume2, VolumeX, Star } from "lucide-react"
 import { Card } from "@/components/ui/card"
 
@@ -31,10 +31,28 @@ const testimonials = [
   },
 ]
 
-function VideoTestimonial({ testimonial }: { testimonial: (typeof testimonials)[0] }) {
+function VideoTestimonial({
+  testimonial,
+  isActive
+}: {
+  testimonial: (typeof testimonials)[0]
+  isActive: boolean
+}) {
   const [isPlaying, setIsPlaying] = useState(false)
-  const [isMuted, setIsMuted] = useState(true) // Empieza muted para autoplay
+  const [isMuted, setIsMuted] = useState(true)
   const videoRef = useRef<HTMLVideoElement>(null)
+
+  // Auto play/pause based on isActive
+  useEffect(() => {
+    if (!videoRef.current) return
+
+    if (isActive && !isPlaying) {
+      videoRef.current.play().then(() => setIsPlaying(true)).catch(() => { })
+    } else if (!isActive && isPlaying) {
+      videoRef.current.pause()
+      setIsPlaying(false)
+    }
+  }, [isActive, isPlaying])
 
   const togglePlay = () => {
     if (videoRef.current) {
@@ -56,7 +74,6 @@ function VideoTestimonial({ testimonial }: { testimonial: (typeof testimonials)[
 
   return (
     <Card className="flex-shrink-0 w-[280px] sm:w-auto snap-center overflow-hidden bg-white border border-slate-200 rounded-xl shadow-sm">
-      {/* Video container - formato vertical para testimonios */}
       <div className="relative aspect-[9/16] sm:aspect-[9/14] bg-black">
         <video
           ref={videoRef}
@@ -69,24 +86,20 @@ function VideoTestimonial({ testimonial }: { testimonial: (typeof testimonials)[
           onEnded={() => setIsPlaying(false)}
         />
 
-        {/* Overlay */}
         <div
           className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/20 transition-opacity duration-300 ${isPlaying ? "opacity-0" : "opacity-100"}`}
           onClick={togglePlay}
         >
-          {/* Badge de resultado */}
           <div className="absolute top-3 left-3 bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-lg">
             {testimonial.result}
           </div>
 
-          {/* Estrellas */}
           <div className="absolute top-3 right-3 flex gap-0.5">
             {[...Array(5)].map((_, i) => (
               <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
             ))}
           </div>
 
-          {/* Botón de play central */}
           {!isPlaying && (
             <button
               className="absolute inset-0 flex items-center justify-center group"
@@ -98,7 +111,6 @@ function VideoTestimonial({ testimonial }: { testimonial: (typeof testimonials)[
             </button>
           )}
 
-          {/* Info del testimonial */}
           <div className="absolute bottom-0 left-0 right-0 p-4">
             <div className="font-semibold text-white text-sm">{testimonial.name}</div>
             <div className="text-white/80 text-xs">
@@ -107,7 +119,6 @@ function VideoTestimonial({ testimonial }: { testimonial: (typeof testimonials)[
           </div>
         </div>
 
-        {/* Controles cuando está reproduciendo */}
         {isPlaying && (
           <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
             <div className="flex items-center justify-between">
@@ -145,8 +156,61 @@ function VideoTestimonial({ testimonial }: { testimonial: (typeof testimonials)[
 }
 
 export function Testimonials() {
+  const [activeVideoIndex, setActiveVideoIndex] = useState<number | null>(null)
+  const sectionRef = useRef<HTMLElement>(null)
+  const videoRefs = useRef<(HTMLDivElement | null)[]>([])
+
+  // Detect when testimonials section is visible
+  useEffect(() => {
+    const section = sectionRef.current
+    if (!section) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && activeVideoIndex === null) {
+            setActiveVideoIndex(0)
+          } else if (!entry.isIntersecting) {
+            setActiveVideoIndex(null)
+          }
+        })
+      },
+      { threshold: 0.3 }
+    )
+
+    observer.observe(section)
+    return () => observer.disconnect()
+  }, [activeVideoIndex])
+
+  // Detect which video is most visible in scroll container
+  useEffect(() => {
+    if (activeVideoIndex === null) return
+
+    const observers = videoRefs.current.map((videoDiv, index) => {
+      if (!videoDiv) return null
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+              setActiveVideoIndex(index)
+            }
+          })
+        },
+        { threshold: [0.5], root: videoDiv.parentElement }
+      )
+
+      observer.observe(videoDiv)
+      return observer
+    })
+
+    return () => {
+      observers.forEach((observer) => observer?.disconnect())
+    }
+  }, [activeVideoIndex])
+
   return (
-    <section className="py-10 sm:py-16 px-4 sm:px-6 bg-background">
+    <section ref={sectionRef} className="py-10 sm:py-16 px-4 sm:px-6 bg-background">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 text-foreground">
@@ -157,14 +221,22 @@ export function Testimonials() {
 
         <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory sm:overflow-visible sm:pb-0 sm:grid sm:grid-cols-2 lg:grid-cols-3 -mx-4 px-4 sm:mx-0 sm:px-0">
           {testimonials.map((testimonial, index) => (
-            <VideoTestimonial key={index} testimonial={testimonial} />
+            <div key={index} ref={(el) => { videoRefs.current[index] = el }}>
+              <VideoTestimonial
+                testimonial={testimonial}
+                isActive={activeVideoIndex === index}
+              />
+            </div>
           ))}
         </div>
 
-        {/* Indicadores de scroll en móvil */}
         <div className="flex justify-center gap-1.5 mt-4 sm:hidden">
           {testimonials.map((_, i) => (
-            <div key={i} className="w-2 h-2 rounded-full bg-emerald-200" />
+            <div
+              key={i}
+              className={`w-2 h-2 rounded-full transition-colors ${activeVideoIndex === i ? 'bg-emerald-600' : 'bg-emerald-200'
+                }`}
+            />
           ))}
         </div>
       </div>

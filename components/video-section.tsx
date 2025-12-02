@@ -10,8 +10,25 @@ const POSTER_URL = "https://dental-growthyy.s3.sa-east-1.amazonaws.com/Nacho+VSL
 export function VideoSection() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [showButton, setShowButton] = useState(true)
+  const [isMuted, setIsMuted] = useState(true) // Muted by default for autoplay
   const videoRef = useRef<HTMLVideoElement>(null)
   const hideTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+
+  // Autoplay with 0.5s delay
+  useEffect(() => {
+    const autoplayTimer = setTimeout(() => {
+      if (videoRef.current) {
+        videoRef.current.play().then(() => {
+          setIsPlaying(true)
+        }).catch((error) => {
+          console.log('Autoplay prevented:', error)
+          // Autoplay was prevented, user will need to click play
+        })
+      }
+    }, 500)
+
+    return () => clearTimeout(autoplayTimer)
+  }, [])
 
   useEffect(() => {
     if (isPlaying) {
@@ -63,6 +80,7 @@ export function VideoSection() {
               poster={POSTER_URL}
               className="w-full h-full object-cover"
               playsInline
+              muted={isMuted}
               preload="auto"
               onEnded={() => setIsPlaying(false)}
             />
