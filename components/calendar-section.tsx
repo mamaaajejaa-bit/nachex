@@ -15,7 +15,7 @@ export function CalendarSection() {
 
   useEffect(() => {
     const script = document.createElement("script")
-    script.src = "https://link.growthdental.online/js/form_embed.js"
+    script.src = "https://link.msgsndr.com/js/form_embed.js"
     script.type = "text/javascript"
     script.async = true
     document.body.appendChild(script)
@@ -52,7 +52,7 @@ export function CalendarSection() {
               <div className="flex flex-wrap gap-2 sm:gap-3 mb-4 sm:mb-6">
                 <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-muted-foreground bg-slate-50 rounded-full px-3 py-1.5">
                   <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600" />
-                  <span>15-30 min</span>
+                  <span>60 min</span>
                 </div>
                 <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-muted-foreground bg-slate-50 rounded-full px-3 py-1.5">
                   <Video className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600" />
@@ -85,13 +85,13 @@ export function CalendarSection() {
               </div>
             </div>
 
-            {/* Right - GrowthDental Calendar Embed */}
+            {/* Right - LeadConnector Calendar Embed */}
             <div className="order-1 lg:order-2 min-h-[500px] sm:min-h-[550px]">
               <iframe
-                src="https://link.growthdental.online/widget/booking/VXjsvOFXMNJpPM0hvGfH"
+                src="https://api.leadconnectorhq.com/widget/booking/VXjsvOFXMNJpPM0hvGfH"
                 style={{ width: "100%", height: "100%", minHeight: "500px", border: "none", overflow: "hidden" }}
                 scrolling="no"
-                id="VXjsvOFXMNJpPM0hvGfH_1764171717616"
+                id="VXjsvOFXMNJpPM0hvGfH_1764624950927"
                 title="Agenda tu llamada de consultoría"
               />
             </div>
