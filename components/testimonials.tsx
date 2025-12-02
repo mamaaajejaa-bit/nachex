@@ -17,7 +17,7 @@ const testimonials = [
     name: "Dr. Carlos Mendoza",
     role: "Especialista en Implantes",
     location: "Bogotá",
-    result: "+$15,000 USD/mes",
+    result: "+30 pacientes generados",
     videoUrl: "https://dental-growthyy.s3.sa-east-1.amazonaws.com/Nuestro+cliente+Dental+Juarez+comparte+su+experiencia+trabajando+con+nosotros+luego+de+unos+meses.+Gracias+Dr+Axel%2C+a+seguir+creciendo.mp4",
     thumbnailUrl: "/dental-juarez.jpg",
   },
@@ -113,9 +113,6 @@ function VideoTestimonial({
 
           <div className="absolute bottom-0 left-0 right-0 p-4">
             <div className="font-semibold text-white text-sm">{testimonial.name}</div>
-            <div className="text-white/80 text-xs">
-              {testimonial.role} • {testimonial.location}
-            </div>
           </div>
         </div>
 
