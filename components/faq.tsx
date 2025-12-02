@@ -5,12 +5,12 @@ export function FAQ() {
     {
       question: "¿Cuánto tiempo tarda en ver resultados?",
       answer:
-        "La mayoría de nuestros clientes ven sus primeros pacientes en las primeras 2 semanas. En promedio, alcanzamos los 50+ pacientes mensuales en el segundo mes de trabajo.",
+        "La mayoría de nuestros clientes ven sus primeros pacientes en la primera semana. En promedio, alcanzamos los 50+ pacientes mensuales garantizado.",
     },
     {
       question: "¿Qué pasa si no funciona?",
       answer:
-        "Tenemos una garantía de resultados. Si en 60 días no generas al menos 30 pacientes nuevos, te devolvemos tu inversión completa. Sin preguntas.",
+        "Tenemos una garantía de resultados. Si no generas pacientes nuevos, no pagas.",
     },
     {
       question: "¿Necesito hacer algo yo?",
@@ -25,12 +25,12 @@ export function FAQ() {
     {
       question: "¿Funciona en mi ciudad/país?",
       answer:
-        "Sí. Trabajamos con dentistas en toda Latinoamérica y España. Nuestro sistema se adapta a cada mercado local.",
+        "Sí. Trabajamos con dentistas exclusivamente en MEXICO. Nuestro sistema esta adaptado al mercado local.",
     },
     {
       question: "¿Por qué debería confiar en ustedes?",
       answer:
-        "Tenemos +200 dentistas activos y una calificación de 4.9/5. Puedes ver testimonios reales arriba. Además, nuestra garantía de devolución elimina cualquier riesgo para ti.",
+        "Tenemos +42 clinicas dentales activas y una calificación de 4.9/5. Puedes ver testimonios reales arriba. Además, nuestra garantía elimina cualquier riesgo para ti.",
     },
   ]
 

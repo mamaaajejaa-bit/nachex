@@ -5,7 +5,7 @@ export function Benefits() {
     "Perder tiempo respondiendo mensajes que no convierten",
     "Pacientes que agendan pero nunca llegan",
     "Publicidad que no genera resultados reales",
-    "Competir por precio con otros dentistas",
+    "No logras llenar tu agenda todos los meses",
   ]
 
   const solutions = [
@@ -27,7 +27,7 @@ export function Benefits() {
     {
       icon: Shield,
       title: "Garantía de resultados",
-      description: "Si no generas pacientes, te devolvemos tu inversión",
+      description: "Si no generas pacientes, no pagas",
     },
   ]
 

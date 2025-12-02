@@ -52,7 +52,7 @@ export function CalendarSection() {
               <div className="flex flex-wrap gap-2 sm:gap-3 mb-4 sm:mb-6">
                 <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-muted-foreground bg-slate-50 rounded-full px-3 py-1.5">
                   <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600" />
-                  <span>60 min</span>
+                  <span>15 min</span>
                 </div>
                 <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-muted-foreground bg-slate-50 rounded-full px-3 py-1.5">
                   <Video className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600" />
