@@ -34,7 +34,7 @@ const testimonials: Testimonial[] = [
     name: "Dr. Genaro",
     role: "Alivio Dental",
     result: "$18,500 MXN Semanales",
-    imageUrl: "/images/testimonial-1.png",
+    imageUrl: "/images/testimonial-2.png",
   },
   {
     type: "video",
@@ -50,7 +50,7 @@ const testimonials: Testimonial[] = [
     name: "Dra. Alejandra López",
     role: "Agenda Completa",
     result: "Calendario Lleno",
-    imageUrl: "/images/testimonial-2.png",
+    imageUrl: "/images/testimonial-1.png",
   },
   {
     type: "video",
