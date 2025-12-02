@@ -1,16 +1,32 @@
 "use client"
 
-import { useState, useRef } from "react"
-import { Play, Pause, Volume2, VolumeX } from "lucide-react"
+import { useState, useRef, useEffect } from "react"
+import { Play, Pause } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const VIDEO_URL = "https://dental-growthyy.s3.sa-east-1.amazonaws.com/Nacho+VSL.mp4"
-const THUMBNAIL_URL = "https://tu-bucket.s3.amazonaws.com/vsl-thumbnail.jpg" // Opcional
 
 export function VideoSection() {
   const [isPlaying, setIsPlaying] = useState(false)
-  const [isMuted, setIsMuted] = useState(false)
+  const [showButton, setShowButton] = useState(true)
   const videoRef = useRef<HTMLVideoElement>(null)
+  const hideTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+
+  useEffect(() => {
+    if (isPlaying) {
+      hideTimeoutRef.current = setTimeout(() => {
+        setShowButton(false)
+      }, 500)
+    } else {
+      setShowButton(true)
+    }
+
+    return () => {
+      if (hideTimeoutRef.current) {
+        clearTimeout(hideTimeoutRef.current)
+      }
+    }
+  }, [isPlaying])
 
   const togglePlay = () => {
     if (videoRef.current) {
@@ -23,10 +39,15 @@ export function VideoSection() {
     }
   }
 
-  const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted
-      setIsMuted(!isMuted)
+  const handleInteraction = () => {
+    if (isPlaying) {
+      setShowButton(true)
+      if (hideTimeoutRef.current) {
+        clearTimeout(hideTimeoutRef.current)
+      }
+      hideTimeoutRef.current = setTimeout(() => {
+        setShowButton(false)
+      }, 500)
     }
   }
 
@@ -38,70 +59,33 @@ export function VideoSection() {
             <video
               ref={videoRef}
               src={VIDEO_URL}
-              poster={THUMBNAIL_URL}
               className="w-full h-full object-cover"
               playsInline
-              preload="metadata"
+              preload="auto"
               onEnded={() => setIsPlaying(false)}
             />
 
-            {/* Overlay con controles */}
             <div
-              className={`absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10 transition-opacity duration-300 ${isPlaying ? "opacity-0 hover:opacity-100" : "opacity-100"}`}
+              className="absolute inset-0 flex items-center justify-center cursor-pointer"
               onClick={togglePlay}
+              onMouseMove={handleInteraction}
+              onTouchStart={handleInteraction}
             >
-              {/* Botón de play central */}
-              {!isPlaying && (
-                <button
-                  className="absolute inset-0 flex items-center justify-center group"
-                  aria-label="Reproducir video"
-                >
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-emerald-600 rounded-full flex items-center justify-center shadow-lg shadow-emerald-600/40 group-hover:scale-110 group-active:scale-95 transition-all duration-300 group-hover:bg-emerald-500">
+              <button
+                className={`group transition-opacity duration-300 ${showButton ? "opacity-100" : "opacity-0"}`}
+                aria-label={isPlaying ? "Pausar video" : "Reproducir video"}
+              >
+                <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-emerald-600 rounded-full flex items-center justify-center shadow-lg shadow-emerald-600/40 group-hover:scale-110 group-active:scale-95 transition-all duration-300 group-hover:bg-emerald-500">
+                  {isPlaying ? (
+                    <Pause className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 text-white" fill="white" />
+                  ) : (
                     <Play className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 text-white ml-1" fill="white" />
-                  </div>
-                  {/* Ripple effect */}
-                  <div className="absolute w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-emerald-600/30 rounded-full animate-ping" />
-                </button>
-              )}
-
-              {/* Controles inferiores */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-4 sm:p-6">
-                <div className="flex items-center justify-between">
-                  <p className="text-white text-sm sm:text-base md:text-lg font-medium leading-snug flex-1 mr-4">
-                    Mira cómo ayudamos a odontólogos a conseguir <strong>+80 pacientes nuevos</strong>
-                  </p>
-                  <div className="flex gap-2">
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        togglePlay()
-                      }}
-                      className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
-                      aria-label={isPlaying ? "Pausar" : "Reproducir"}
-                    >
-                      {isPlaying ? (
-                        <Pause className="w-5 h-5 text-white" fill="white" />
-                      ) : (
-                        <Play className="w-5 h-5 text-white ml-0.5" fill="white" />
-                      )}
-                    </button>
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        toggleMute()
-                      }}
-                      className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
-                      aria-label={isMuted ? "Activar sonido" : "Silenciar"}
-                    >
-                      {isMuted ? (
-                        <VolumeX className="w-5 h-5 text-white" />
-                      ) : (
-                        <Volume2 className="w-5 h-5 text-white" />
-                      )}
-                    </button>
-                  </div>
+                  )}
                 </div>
-              </div>
+                {!isPlaying && (
+                  <div className="absolute inset-0 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 m-auto bg-emerald-600/30 rounded-full animate-ping" />
+                )}
+              </button>
             </div>
           </div>
         </div>

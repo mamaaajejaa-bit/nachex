@@ -10,7 +10,7 @@ const testimonials = [
     role: "Odontóloga General",
     location: "CDMX",
     result: "+45 pacientes/mes",
-    videoUrl: "https://dental-growthyy.s3.sa-east-1.amazonaws.com/Testimonio+Paulina.mp44",
+    videoUrl: "https://dental-growthyy.s3.sa-east-1.amazonaws.com/Testimonio+Paulina.mp4",
     thumbnailUrl: "https://tu-bucket.s3.amazonaws.com/testimonio-1-thumb.jpg",
   },
   {
