@@ -5,7 +5,7 @@ import { Play, Pause } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const VIDEO_URL = "https://dental-growthyy.s3.sa-east-1.amazonaws.com/Nacho+VSL.mp4"
-const POSTER_URL = "https://dental-growthyy.s3.sa-east-1.amazonaws.com/Nacho+VSL.jpg"
+const POSTER_URL = "/nacho-vsl-preview.jpg"
 
 export function VideoSection() {
   const [isPlaying, setIsPlaying] = useState(false)
