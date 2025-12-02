@@ -31,7 +31,7 @@ export function HeroSection() {
               width={140}
               height={40}
               className="mx-auto h-8 sm:h-10 md:h-12 w-auto drop-shadow-sm"
-              style={{ filter: "brightness(0) saturate(100%) invert(38%) sepia(13%) saturate(1638%) hue-rotate(115deg) brightness(96%) contrast(88%)" }} // #649584
+              style={{ filter: "brightness(0)" }} // negro
               priority
             />
           </div>
