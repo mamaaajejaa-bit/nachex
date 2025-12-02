@@ -1,11 +1,27 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
-import { Play, Pause, Volume2, VolumeX, Star } from "lucide-react"
+import { Play, Pause, Volume2, VolumeX, Star, Maximize2 } from "lucide-react"
 import { Card } from "@/components/ui/card"
+import Image from "next/image"
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 
-const testimonials = [
+type TestimonialType = "video" | "image"
+
+interface Testimonial {
+  type: TestimonialType
+  name: string
+  role: string
+  location?: string
+  result: string
+  videoUrl?: string
+  thumbnailUrl?: string
+  imageUrl?: string
+}
+
+const testimonials: Testimonial[] = [
   {
+    type: "video",
     name: "Dra. Paulina",
     role: "Odontóloga General",
     location: "CDMX",
@@ -14,6 +30,14 @@ const testimonials = [
     thumbnailUrl: "/testimonio-paulina.jpg",
   },
   {
+    type: "image",
+    name: "Dr. Genaro",
+    role: "Alivio Dental",
+    result: "$18,500 MXN Semanales",
+    imageUrl: "/images/testimonial-1.png",
+  },
+  {
+    type: "video",
     name: "Dr. Juarez",
     role: "Especialista en Implantes",
     location: "MEXICO",
@@ -22,6 +46,14 @@ const testimonials = [
     thumbnailUrl: "/dental-juarez.jpg",
   },
   {
+    type: "image",
+    name: "Dra. Alejandra López",
+    role: "Agenda Completa",
+    result: "Calendario Lleno",
+    imageUrl: "/images/testimonial-2.png",
+  },
+  {
+    type: "video",
     name: "Dr. Pablo",
     role: "Ortodoncia",
     location: "MEXICO",
@@ -29,22 +61,29 @@ const testimonials = [
     videoUrl: "https://dental-growthyy.s3.sa-east-1.amazonaws.com/Testimonio+de+Pablito.mp4",
     thumbnailUrl: "/testimonio-pablito.jpg",
   },
+  {
+    type: "image",
+    name: "Al Dent Marketing",
+    role: "Resultados Mensuales",
+    result: "ROI 990%",
+    imageUrl: "/images/testimonial-3.png",
+  },
 ]
 
-function VideoTestimonial({
+function TestimonialCard({
   testimonial,
   isActive
 }: {
-  testimonial: (typeof testimonials)[0]
+  testimonial: Testimonial
   isActive: boolean
 }) {
   const [isPlaying, setIsPlaying] = useState(false)
   const [isMuted, setIsMuted] = useState(true)
   const videoRef = useRef<HTMLVideoElement>(null)
 
-  // Auto play/pause based on isActive
+  // Auto play/pause based on isActive for videos
   useEffect(() => {
-    if (!videoRef.current) return
+    if (testimonial.type !== 'video' || !videoRef.current) return
 
     if (isActive && !isPlaying) {
       videoRef.current.play().then(() => setIsPlaying(true)).catch(() => { })
@@ -52,7 +91,7 @@ function VideoTestimonial({
       videoRef.current.pause()
       setIsPlaying(false)
     }
-  }, [isActive, isPlaying])
+  }, [isActive, isPlaying, testimonial.type])
 
   const togglePlay = () => {
     if (videoRef.current) {
@@ -70,6 +109,57 @@ function VideoTestimonial({
       videoRef.current.muted = !isMuted
       setIsMuted(!isMuted)
     }
+  }
+
+  if (testimonial.type === 'image') {
+    return (
+      <Dialog>
+        <DialogTrigger asChild>
+          <Card className="flex-shrink-0 w-[280px] sm:w-auto snap-center overflow-hidden bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer group">
+            <div className="relative aspect-[9/16] sm:aspect-[9/14] bg-black">
+              <Image
+                src={testimonial.imageUrl!}
+                alt={testimonial.name}
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 opacity-90 group-hover:opacity-100 transition-opacity" />
+
+              <div className="absolute top-3 left-3 bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-lg">
+                {testimonial.result}
+              </div>
+
+              <div className="absolute top-3 right-3 flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+                ))}
+              </div>
+
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="bg-black/50 p-3 rounded-full backdrop-blur-sm">
+                  <Maximize2 className="w-6 h-6 text-white" />
+                </div>
+              </div>
+
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <div className="font-semibold text-white text-sm">{testimonial.name}</div>
+                <div className="text-white/80 text-xs">{testimonial.role}</div>
+              </div>
+            </div>
+          </Card>
+        </DialogTrigger>
+        <DialogContent className="max-w-3xl p-0 overflow-hidden bg-transparent border-none shadow-none">
+          <div className="relative w-full h-[80vh]">
+            <Image
+              src={testimonial.imageUrl!}
+              alt={testimonial.name}
+              fill
+              className="object-contain"
+            />
+          </div>
+        </DialogContent>
+      </Dialog>
+    )
   }
 
   return (
@@ -113,6 +203,7 @@ function VideoTestimonial({
 
           <div className="absolute bottom-0 left-0 right-0 p-4">
             <div className="font-semibold text-white text-sm">{testimonial.name}</div>
+            <div className="text-white/80 text-xs">{testimonial.role}</div>
           </div>
         </div>
 
@@ -208,7 +299,7 @@ export function Testimonials() {
 
   return (
     <section ref={sectionRef} className="py-10 sm:py-16 px-4 sm:px-6 bg-background">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 text-foreground">
             Lo que dicen nuestros clientes
@@ -219,7 +310,7 @@ export function Testimonials() {
         <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory sm:overflow-visible sm:pb-0 sm:grid sm:grid-cols-2 lg:grid-cols-3 -mx-4 px-4 sm:mx-0 sm:px-0">
           {testimonials.map((testimonial, index) => (
             <div key={index} ref={(el) => { videoRefs.current[index] = el }}>
-              <VideoTestimonial
+              <TestimonialCard
                 testimonial={testimonial}
                 isActive={activeVideoIndex === index}
               />
