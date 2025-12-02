@@ -6,7 +6,7 @@ import Image from "next/image"
 
 export function HeroSection() {
   return (
-    <section className="relative bg-gradient-to-b from-emerald-50 via-emerald-50/50 to-background overflow-hidden">
+    <section className="relative bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-emerald-50 via-background to-background overflow-hidden">
       <div className="bg-gradient-to-r from-emerald-600 to-emerald-700 text-white py-3 px-4 text-center animate-in fade-in slide-in-from-top duration-500">
         <div className="flex items-center justify-center gap-2 text-xs sm:text-sm font-medium">
           <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
@@ -38,8 +38,9 @@ export function HeroSection() {
 
         {/* Pre-headline con mejor estilo */}
         <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100 fill-mode-backwards">
-          <Badge className="bg-emerald-100/80 text-emerald-700 hover:bg-emerald-100 mb-4 sm:mb-6 text-xs sm:text-sm py-1.5 px-3 sm:px-4 font-medium border border-emerald-200/50 shadow-sm">
-            Atención Odontólogos de MEXICO
+          <Badge className="relative overflow-hidden bg-emerald-100/80 text-emerald-700 hover:bg-emerald-100 mb-4 sm:mb-6 text-xs sm:text-sm py-1.5 px-3 sm:px-4 font-medium border border-emerald-200/50 shadow-sm">
+            <span className="relative z-10">Atención Odontólogos de MEXICO</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent animate-[shimmer_2s_infinite] translate-x-[-100%]" />
           </Badge>
         </div>
 
@@ -64,31 +65,14 @@ export function HeroSection() {
           Sin que respondas un solo mensaje. Nosotros nos encargamos de todo el proceso de captación y agendamiento.
         </p>
 
-        {/* Nuevo CTA Principal */}
-        <div className="flex flex-col items-center gap-4 mb-10 sm:mb-12 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-400 fill-mode-backwards">
-          <button
-            onClick={() => document.getElementById("calendar")?.scrollIntoView({ behavior: "smooth" })}
-            className="group relative inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white text-lg sm:text-xl font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 w-full sm:w-auto max-w-xs active:scale-95"
-          >
-            <span className="relative z-10 flex items-center gap-2">
-              Agendar llamada GRATIS
-              <TrendingUp className="w-5 h-5" />
-            </span>
-            <div className="absolute inset-0 rounded-full bg-white/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity" />
-          </button>
-          <p className="text-xs sm:text-sm text-muted-foreground">
-            Solo quedan 3 lugares disponibles este mes
-          </p>
-        </div>
-
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-sm text-muted-foreground animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500 fill-mode-backwards">
-          <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm rounded-full px-4 py-2 border border-emerald-100 shadow-sm">
+          <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm rounded-full px-4 py-2 border border-emerald-100 shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 cursor-default">
             <Users className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600" />
             <span>
               <strong className="text-foreground">+42</strong> dentistas confían en nosotros
             </span>
           </div>
-          <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm rounded-full px-4 py-2 border border-emerald-100 shadow-sm">
+          <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm rounded-full px-4 py-2 border border-emerald-100 shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 cursor-default">
             <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600" />
             <span>
               <strong className="text-foreground">+15,000</strong> pacientes generados

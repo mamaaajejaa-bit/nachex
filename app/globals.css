@@ -181,6 +181,15 @@ button {
   }
 }
 
+@keyframes shimmer {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
 .section-enter {
   animation: fade-in-up 0.8s ease-out forwards;
 }

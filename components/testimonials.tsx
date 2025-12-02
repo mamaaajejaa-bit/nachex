@@ -17,7 +17,7 @@ const testimonials = [
     name: "Dr. Juarez",
     role: "Especialista en Implantes",
     location: "MEXICO",
-    result: "+30 pacientes generados",
+    result: "+250 pacientes generados",
     videoUrl: "https://dental-growthyy.s3.sa-east-1.amazonaws.com/Nuestro+cliente+Dental+Juarez+comparte+su+experiencia+trabajando+con+nosotros+luego+de+unos+meses.+Gracias+Dr+Axel%2C+a+seguir+creciendo.mp4",
     thumbnailUrl: "/dental-juarez.jpg",
   },
@@ -73,7 +73,7 @@ function VideoTestimonial({
   }
 
   return (
-    <Card className="flex-shrink-0 w-[280px] sm:w-auto snap-center overflow-hidden bg-white border border-slate-200 rounded-xl shadow-sm">
+    <Card className="flex-shrink-0 w-[280px] sm:w-auto snap-center overflow-hidden bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
       <div className="relative aspect-[9/16] sm:aspect-[9/14] bg-black">
         <video
           ref={videoRef}
