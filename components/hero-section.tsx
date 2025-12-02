@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge"
 import { Clock, Users, TrendingUp } from "lucide-react"
+import Image from "next/image"
 
 export function HeroSection() {
   return (
@@ -20,17 +21,19 @@ export function HeroSection() {
       <div className="max-w-4xl mx-auto px-5 sm:px-6 pt-8 pb-6 sm:pt-10 sm:pb-8 text-center">
         {/* Logo mejorado */}
         <div className="mb-5 sm:mb-6">
-          <div className="inline-flex items-center gap-1.5">
-            <span className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-emerald-600 to-emerald-700 bg-clip-text text-transparent">
-              Growth Dental
-            </span>
-            <span className="text-2xl sm:text-3xl">🦷</span>
-          </div>
+          <Image
+            src="/images/logo-growth.png"
+            alt="Growth"
+            width={180}
+            height={50}
+            className="mx-auto h-10 sm:h-12 md:h-14 w-auto"
+            priority
+          />
         </div>
 
         {/* Pre-headline con mejor estilo */}
         <Badge className="bg-emerald-100/80 text-emerald-700 hover:bg-emerald-100 mb-4 sm:mb-5 text-xs sm:text-sm py-1.5 px-3 sm:px-4 font-medium border border-emerald-200/50">
-          Atención Odontólogos de LATAM
+          Atención Odontólogos de MEXICO
         </Badge>
 
         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-[1.2] sm:leading-tight mb-4 sm:mb-6 text-balance px-2">
@@ -51,15 +54,16 @@ export function HeroSection() {
 
         {/* Sub-headline mejorado */}
         <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-xl mx-auto leading-relaxed px-2">
-          <span className="text-foreground font-semibold">Sin que respondas un solo mensaje.</span> Nosotros nos
-          encargamos de todo.
+          <span className="text-foreground font-semibold">+42</span> dentistas confían en nosotros,{" "}
+          <span className="text-foreground font-semibold">+15,000</span> pacientes generados. Sin que respondas un solo
+          mensaje. Nosotros nos encargamos de todo.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-sm text-muted-foreground">
           <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm rounded-full px-4 py-2 border border-emerald-100">
             <Users className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600" />
             <span>
-              <strong className="text-foreground">+200</strong> dentistas confían en nosotros
+              <strong className="text-foreground">+42</strong> dentistas confían en nosotros
             </span>
           </div>
           <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm rounded-full px-4 py-2 border border-emerald-100">

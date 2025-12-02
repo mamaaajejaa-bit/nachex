@@ -1,7 +1,7 @@
 "use client"
 
-import { useState } from "react"
-import { Play, Star } from "lucide-react"
+import { useState, useRef } from "react"
+import { Play, Pause, Volume2, VolumeX, Star } from "lucide-react"
 import { Card } from "@/components/ui/card"
 
 const testimonials = [
@@ -10,82 +10,134 @@ const testimonials = [
     role: "Odontóloga General",
     location: "CDMX",
     result: "+45 pacientes/mes",
-    youtubeId: "VIDEO_ID_1", // Reemplaza con tu ID de YouTube
+    videoUrl: "https://dental-growthyy.s3.sa-east-1.amazonaws.com/Testimonio+Paulina.mp44",
+    thumbnailUrl: "https://tu-bucket.s3.amazonaws.com/testimonio-1-thumb.jpg",
   },
   {
     name: "Dr. Carlos Mendoza",
     role: "Especialista en Implantes",
     location: "Bogotá",
     result: "+$15,000 USD/mes",
-    youtubeId: "VIDEO_ID_2", // Reemplaza con tu ID de YouTube
+    videoUrl: "https://dental-growthyy.s3.sa-east-1.amazonaws.com/Nuestro+cliente+Dental+Juarez+comparte+su+experiencia+trabajando+con+nosotros+luego+de+unos+meses.+Gracias+Dr+Axel%2C+a+seguir+creciendo.mp4",
+    thumbnailUrl: "https://tu-bucket.s3.amazonaws.com/testimonio-2-thumb.jpg",
   },
   {
-    name: "Dra. Ana Rodríguez",
+    name: "Dr. Pablo",
     role: "Ortodoncia",
     location: "Lima",
     result: "ROI de 8x",
-    youtubeId: "VIDEO_ID_3", // Reemplaza con tu ID de YouTube
+    videoUrl: "https://dental-growthyy.s3.sa-east-1.amazonaws.com/Testimonio+de+Pablito.mp4",
+    thumbnailUrl: "https://tu-bucket.s3.amazonaws.com/testimonio-3-thumb.jpg",
   },
 ]
 
 function VideoTestimonial({ testimonial }: { testimonial: (typeof testimonials)[0] }) {
   const [isPlaying, setIsPlaying] = useState(false)
+  const [isMuted, setIsMuted] = useState(true) // Empieza muted para autoplay
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause()
+      } else {
+        videoRef.current.play()
+      }
+      setIsPlaying(!isPlaying)
+    }
+  }
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted
+      setIsMuted(!isMuted)
+    }
+  }
 
   return (
-    <Card className="flex-shrink-0 w-[85vw] sm:w-auto snap-center overflow-hidden bg-white border border-slate-200 rounded-xl shadow-sm">
+    <Card className="flex-shrink-0 w-[280px] sm:w-auto snap-center overflow-hidden bg-white border border-slate-200 rounded-xl shadow-sm">
       {/* Video container - formato vertical para testimonios */}
       <div className="relative aspect-[9/16] sm:aspect-[9/14] bg-black">
-        {!isPlaying ? (
-          <div className="relative w-full h-full">
-            {/* Thumbnail de YouTube */}
-            <img
-              src={`https://img.youtube.com/vi/${testimonial.youtubeId}/maxresdefault.jpg`}
-              alt={`Testimonio de ${testimonial.name}`}
-              className="w-full h-full object-cover"
-            />
+        <video
+          ref={videoRef}
+          src={testimonial.videoUrl}
+          poster={testimonial.thumbnailUrl}
+          className="w-full h-full object-cover"
+          playsInline
+          muted={isMuted}
+          preload="metadata"
+          onEnded={() => setIsPlaying(false)}
+        />
 
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/10">
-              {/* Badge de resultado */}
-              <div className="absolute top-3 left-3 bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-lg">
-                {testimonial.result}
+        {/* Overlay */}
+        <div
+          className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/20 transition-opacity duration-300 ${isPlaying ? "opacity-0" : "opacity-100"}`}
+          onClick={togglePlay}
+        >
+          {/* Badge de resultado */}
+          <div className="absolute top-3 left-3 bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-lg">
+            {testimonial.result}
+          </div>
+
+          {/* Estrellas */}
+          <div className="absolute top-3 right-3 flex gap-0.5">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+            ))}
+          </div>
+
+          {/* Botón de play central */}
+          {!isPlaying && (
+            <button
+              className="absolute inset-0 flex items-center justify-center group"
+              aria-label="Reproducir testimonio"
+            >
+              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 group-active:scale-95 transition-all duration-300">
+                <Play className="w-6 h-6 sm:w-7 sm:h-7 text-emerald-600 ml-1" fill="currentColor" />
               </div>
+            </button>
+          )}
 
-              {/* Estrellas */}
-              <div className="absolute top-3 right-3 flex gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
-                ))}
+          {/* Info del testimonial */}
+          <div className="absolute bottom-0 left-0 right-0 p-4">
+            <div className="font-semibold text-white text-sm">{testimonial.name}</div>
+            <div className="text-white/80 text-xs">
+              {testimonial.role} • {testimonial.location}
+            </div>
+          </div>
+        </div>
+
+        {/* Controles cuando está reproduciendo */}
+        {isPlaying && (
+          <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
+            <div className="flex items-center justify-between">
+              <div className="flex-1">
+                <div className="font-semibold text-white text-xs">{testimonial.name}</div>
               </div>
-
-              {/* Botón de play */}
-              <button
-                onClick={() => setIsPlaying(true)}
-                className="absolute inset-0 flex items-center justify-center group"
-                aria-label="Reproducir testimonio"
-              >
-                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 group-active:scale-95 transition-all duration-300">
-                  <Play className="w-6 h-6 sm:w-7 sm:h-7 text-emerald-600 ml-1" fill="currentColor" />
-                </div>
-              </button>
-
-              {/* Info del testimonial */}
-              <div className="absolute bottom-0 left-0 right-0 p-4">
-                <div className="font-semibold text-white text-sm">{testimonial.name}</div>
-                <div className="text-white/80 text-xs">
-                  {testimonial.role} • {testimonial.location}
-                </div>
+              <div className="flex gap-1.5">
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    togglePlay()
+                  }}
+                  className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
+                  aria-label="Pausar"
+                >
+                  <Pause className="w-4 h-4 text-white" fill="white" />
+                </button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    toggleMute()
+                  }}
+                  className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
+                  aria-label={isMuted ? "Activar sonido" : "Silenciar"}
+                >
+                  {isMuted ? <VolumeX className="w-4 h-4 text-white" /> : <Volume2 className="w-4 h-4 text-white" />}
+                </button>
               </div>
             </div>
           </div>
-        ) : (
-          <iframe
-            src={`https://www.youtube.com/embed/${testimonial.youtubeId}?autoplay=1&rel=0&modestbranding=1`}
-            title={`Testimonio de ${testimonial.name}`}
-            className="w-full h-full"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
         )}
       </div>
     </Card>

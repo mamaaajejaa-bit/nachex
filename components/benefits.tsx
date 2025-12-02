@@ -58,7 +58,7 @@ export function Benefits() {
         {/* Solutions */}
         <div className="text-center mb-6 sm:mb-10">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 text-foreground">
-            Con Growth Dental todo cambia
+            Con <span className="text-emerald-600">Growth</span> todo cambia
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground">
             Esto es lo que obtienes al trabajar con nosotros:

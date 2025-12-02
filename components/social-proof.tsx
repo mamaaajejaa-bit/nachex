@@ -2,10 +2,10 @@ import { Star } from "lucide-react"
 
 export function SocialProof() {
   const stats = [
-    { number: "+200", label: "Dentistas activos" },
+    { number: "+42", label: "Dentistas activos" },
     { number: "+15K", label: "Pacientes generados" },
     { number: "98%", label: "Satisfacción" },
-    { number: "45 días", label: "Promedio ROI" },
+    { number: "7 días", label: "Promedio ROI" },
   ]
 
   return (
