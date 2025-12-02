@@ -11,7 +11,7 @@ const testimonials = [
     location: "CDMX",
     result: "+45 pacientes/mes",
     videoUrl: "https://dental-growthyy.s3.sa-east-1.amazonaws.com/Testimonio+Paulina.mp4",
-    thumbnailUrl: "https://dental-growthyy.s3.sa-east-1.amazonaws.com/Testimonio+Paulina.mp4",
+    thumbnailUrl: "/testimonio-paulina.jpg",
   },
   {
     name: "Dr. Carlos Mendoza",
@@ -19,7 +19,7 @@ const testimonials = [
     location: "Bogotá",
     result: "+$15,000 USD/mes",
     videoUrl: "https://dental-growthyy.s3.sa-east-1.amazonaws.com/Nuestro+cliente+Dental+Juarez+comparte+su+experiencia+trabajando+con+nosotros+luego+de+unos+meses.+Gracias+Dr+Axel%2C+a+seguir+creciendo.mp4",
-    thumbnailUrl: "https://dental-growthyy.s3.sa-east-1.amazonaws.com/Nuestro+cliente+Dental+Juarez+comparte+su+experiencia+trabajando+con+nosotros+luego+de+unos+meses.+Gracias+Dr+Axel%2C+a+seguir+creciendo.mp4",
+    thumbnailUrl: "/dental-juarez.jpg",
   },
   {
     name: "Dr. Pablo",
@@ -27,7 +27,7 @@ const testimonials = [
     location: "Lima",
     result: "ROI de 8x",
     videoUrl: "https://dental-growthyy.s3.sa-east-1.amazonaws.com/Testimonio+de+Pablito.mp4",
-    thumbnailUrl: "https://dental-growthyy.s3.sa-east-1.amazonaws.com/Testimonio+de+Pablito.mp4",
+    thumbnailUrl: "/testimonio-pablito.jpg",
   },
 ]
 
