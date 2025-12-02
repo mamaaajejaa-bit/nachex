@@ -1,3 +1,5 @@
+"use client"
+
 import { Badge } from "@/components/ui/badge"
 import { Clock, Users, TrendingUp } from "lucide-react"
 import Image from "next/image"
