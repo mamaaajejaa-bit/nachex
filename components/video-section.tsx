@@ -5,6 +5,7 @@ import { Play, Pause } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const VIDEO_URL = "https://dental-growthyy.s3.sa-east-1.amazonaws.com/Nacho+VSL.mp4"
+const POSTER_URL = "https://dental-growthyy.s3.sa-east-1.amazonaws.com/Nacho+VSL.jpg"
 
 export function VideoSection() {
   const [isPlaying, setIsPlaying] = useState(false)
@@ -54,11 +55,12 @@ export function VideoSection() {
   return (
     <section className="py-6 sm:py-8 px-4 sm:px-6 bg-background">
       <div className="max-w-4xl mx-auto">
-        <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-xl sm:shadow-2xl border-2 sm:border-4 border-emerald-100/80 bg-slate-900">
+        <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-xl sm:shadow-2xl border-2 sm:border-4 border-emerald-100/80 bg-slate-900 animate-in fade-in duration-700">
           <div className="relative aspect-video bg-black">
             <video
               ref={videoRef}
               src={VIDEO_URL}
+              poster={POSTER_URL}
               className="w-full h-full object-cover"
               playsInline
               preload="auto"
@@ -83,20 +85,20 @@ export function VideoSection() {
                   )}
                 </div>
                 {!isPlaying && (
-                  <div className="absolute inset-0 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 m-auto bg-emerald-600/30 rounded-full animate-ping" />
+                  <div className="absolute inset-0 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 m-auto bg-emerald-600/30 rounded-full animate-pulse" />
                 )}
               </button>
             </div>
           </div>
         </div>
 
-        <div className="mt-6 sm:mt-8 text-center px-2">
+        <div className="mt-6 sm:mt-8 text-center px-2 animate-in fade-in slide-in-from-bottom-2 duration-700 delay-300">
           <p className="text-base sm:text-lg text-muted-foreground mb-3 sm:mb-4">
             ¿Listo para llenar tu agenda de pacientes?
           </p>
           <Button
             size="lg"
-            className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 h-auto rounded-xl shadow-lg shadow-emerald-600/25 transition-all duration-200 font-semibold"
+            className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 h-auto rounded-xl shadow-lg shadow-emerald-600/25 transition-all duration-200 font-semibold hover:scale-105 active:scale-95"
             onClick={() => document.getElementById("calendar")?.scrollIntoView({ behavior: "smooth" })}
           >
             Agenda tu llamada GRATIS ahora

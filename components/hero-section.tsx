@@ -54,8 +54,7 @@ export function HeroSection() {
 
         {/* Sub-headline mejorado */}
         <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-xl mx-auto leading-relaxed px-2">
-          <span className="text-foreground font-semibold">+42</span> dentistas confían en nosotros,{" "}
-          <span className="text-foreground font-semibold">+15,000</span> pacientes generados. Sin que respondas un solo
+          Sin que respondas un solo
           mensaje. Nosotros nos encargamos de todo.
         </p>
 

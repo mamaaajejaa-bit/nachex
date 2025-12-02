@@ -123,20 +123,18 @@
   }
 }
 
-/* Smooth scroll y mejoras de rendimiento */
+/* Agregando animaciones suaves y mejoras visuales */
 html {
   scroll-behavior: smooth;
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Mejor soporte para safe areas en móvil */
 @supports (padding-bottom: env(safe-area-inset-bottom)) {
   body {
     padding-bottom: env(safe-area-inset-bottom);
   }
 }
 
-/* Ocultar scrollbar horizontal en testimonios móvil pero permitir scroll */
 .snap-x {
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -145,7 +143,58 @@ html {
   display: none;
 }
 
-/* Animación suave para botones */
 button {
   -webkit-tap-highlight-color: transparent;
+}
+
+/* Animaciones suaves en scroll y fade-in para todos los elementos */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.section-enter {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.item-enter {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+/* Efectos de transición suave en elementos interactivos */
+section {
+  transition: all 0.3s ease-out;
+}
+
+a,
+button {
+  transition: all 0.2s ease-out;
 }
