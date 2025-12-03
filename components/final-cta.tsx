@@ -17,7 +17,7 @@ export function FinalCTA() {
 
         <Button
           size="lg"
-          className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white text-base sm:text-lg px-6 sm:px-10 py-5 sm:py-7 h-auto rounded-xl shadow-xl shadow-emerald-600/25 mb-6 sm:mb-8 font-semibold transition-all group"
+          className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white text-lg sm:text-lg px-6 sm:px-10 py-4 sm:py-7 h-auto rounded-xl shadow-xl shadow-emerald-600/25 mb-6 sm:mb-8 font-semibold transition-all group"
           onClick={() => document.getElementById("calendar")?.scrollIntoView({ behavior: "smooth" })}
         >
           Agenda tu llamada GRATIS ahora

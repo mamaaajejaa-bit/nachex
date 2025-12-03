@@ -20,7 +20,7 @@ export function SocialProof() {
           <p className="text-emerald-100 text-sm sm:text-base">4.9/5 basada en +150 reseñas</p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
           {stats.map((stat, index) => (
             <div
               key={index}

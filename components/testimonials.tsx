@@ -115,7 +115,7 @@ function TestimonialCard({
     return (
       <Dialog>
         <DialogTrigger asChild>
-          <Card className="flex-shrink-0 w-[280px] sm:w-auto snap-center overflow-hidden bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer group">
+          <Card className="flex-shrink-0 w-[85vw] sm:w-auto max-w-[320px] snap-center overflow-hidden bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer group">
             <div className="relative aspect-[9/16] sm:aspect-[9/14] bg-black">
               <Image
                 src={testimonial.imageUrl!}
@@ -163,7 +163,7 @@ function TestimonialCard({
   }
 
   return (
-    <Card className="flex-shrink-0 w-[280px] sm:w-auto snap-center overflow-hidden bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+    <Card className="flex-shrink-0 w-[85vw] sm:w-auto max-w-[320px] snap-center overflow-hidden bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
       <div className="relative aspect-[9/16] sm:aspect-[9/14] bg-black">
         <video
           ref={videoRef}

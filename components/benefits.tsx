@@ -43,7 +43,7 @@ export function Benefits() {
           </h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 mb-10 sm:mb-16">
+        <div className="grid sm:grid-cols-2 gap-4 sm:gap-4 mb-10 sm:mb-16">
           {problems.map((problem, index) => (
             <div
               key={index}
