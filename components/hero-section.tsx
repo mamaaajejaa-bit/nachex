@@ -22,15 +22,15 @@ export function HeroSection() {
 
       <div className="max-w-4xl mx-auto px-5 sm:px-6 pt-4 pb-2 sm:pt-6 sm:pb-4 text-center">
         {/* Logo mejorado con Glow */}
-        <div className="mb-4 sm:mb-6 relative animate-in fade-in zoom-in duration-700">
+        <div className="mb-2 sm:mb-3 relative animate-in fade-in zoom-in duration-700">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 sm:w-48 sm:h-48 bg-primary/30 blur-[50px] sm:blur-[60px] rounded-full pointer-events-none" />
           <div className="relative">
             <Image
               src="/images/logo-growth.png"
               alt="Growth"
-              width={320}
-              height={90}
-              className="mx-auto h-20 sm:h-24 md:h-28 lg:h-32 w-auto drop-shadow-sm transition-all duration-300"
+              width={640}
+              height={180}
+              className="mx-auto h-40 sm:h-48 md:h-56 lg:h-64 w-auto drop-shadow-sm transition-all duration-300"
               priority
             />
           </div>
