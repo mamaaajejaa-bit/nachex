@@ -27,7 +27,7 @@ export function FloatingCTA() {
     <div className="fixed bottom-0 left-0 right-0 z-50 p-3 sm:p-4 bg-white/95 backdrop-blur-md border-t border-slate-200 shadow-[0_-4px_20px_rgba(0,0,0,0.1)] md:hidden animate-in slide-in-from-bottom duration-300 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
       <div className="flex items-center gap-2.5">
         <Button
-          className="flex-1 bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white py-4 text-sm font-semibold rounded-xl transition-all"
+          className="flex-1 bg-primary hover:bg-primary/90 active:bg-primary text-white py-4 text-sm font-semibold rounded-xl transition-all"
           onClick={() => document.getElementById("calendar")?.scrollIntoView({ behavior: "smooth" })}
         >
           <Calendar className="w-4 h-4 mr-2" />

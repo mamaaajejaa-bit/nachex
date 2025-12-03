@@ -61,7 +61,7 @@ export function Benefits() {
         {/* Solutions */}
         <div className="text-center mb-6 sm:mb-10 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300 fill-mode-backwards">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 text-foreground">
-            Con <span className="text-emerald-600">Growth</span> todo cambia
+            Con <span className="text-primary">Growth</span> todo cambia
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground">
             Esto es lo que obtienes al trabajar con nosotros:
@@ -72,12 +72,12 @@ export function Benefits() {
           {solutions.map((solution, index) => (
             <div
               key={index}
-              className="p-4 sm:p-5 border-2 border-emerald-100 hover:border-emerald-200 transition-all duration-200 bg-white rounded-xl shadow-sm hover:shadow-md animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-backwards"
+              className="p-4 sm:p-5 border-2 border-primary/20 hover:border-primary/40 transition-all duration-200 bg-white rounded-xl shadow-sm hover:shadow-md animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-backwards"
               style={{ animationDelay: `${400 + index * 100}ms` }}
             >
               <div className="flex gap-3 sm:gap-4">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-emerald-100 to-emerald-50 flex items-center justify-center flex-shrink-0">
-                  <solution.icon className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-600" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center flex-shrink-0">
+                  <solution.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                 </div>
                 <div className="min-w-0">
                   <h3 className="font-bold text-base sm:text-lg mb-0.5 sm:mb-1 text-foreground">{solution.title}</h3>
@@ -92,7 +92,7 @@ export function Benefits() {
         <div className="flex justify-center animate-in fade-in slide-in-from-bottom-4 duration-700 delay-700 fill-mode-backwards">
           <button
             onClick={() => document.getElementById("calendar")?.scrollIntoView({ behavior: "smooth" })}
-            className="group relative inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white text-lg sm:text-xl font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 w-full sm:w-auto max-w-xs active:scale-95"
+            className="group relative inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 active:bg-primary text-white text-lg sm:text-xl font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 w-full sm:w-auto max-w-xs active:scale-95"
           >
             <span className="relative z-10 flex items-center gap-2">
               Agendar llamada GRATIS

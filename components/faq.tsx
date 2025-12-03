@@ -49,9 +49,9 @@ export function FAQ() {
             <AccordionItem
               key={index}
               value={`item-${index}`}
-              className="bg-white border border-slate-200 rounded-xl px-4 sm:px-5 data-[state=open]:border-emerald-300 data-[state=open]:shadow-sm transition-all"
+              className="bg-white border border-slate-200 rounded-xl px-4 sm:px-5 data-[state=open]:border-primary/50 data-[state=open]:shadow-sm transition-all"
             >
-              <AccordionTrigger className="text-left font-semibold hover:no-underline text-foreground py-3.5 sm:py-4 text-sm sm:text-base [&>svg]:w-4 [&>svg]:h-4 [&>svg]:text-emerald-600">
+              <AccordionTrigger className="text-left font-semibold hover:no-underline text-foreground py-3.5 sm:py-4 text-sm sm:text-base [&>svg]:w-4 [&>svg]:h-4 [&>svg]:text-primary">
                 {faq.question}
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground text-sm sm:text-base pb-3.5 sm:pb-4 leading-relaxed">

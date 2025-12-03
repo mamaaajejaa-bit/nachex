@@ -28,7 +28,7 @@ export function CalendarSection() {
   return (
     <section
       id="calendar"
-      className="py-10 sm:py-16 px-4 sm:px-6 bg-gradient-to-br from-emerald-600 via-emerald-600 to-emerald-700"
+      className="py-10 sm:py-16 px-4 sm:px-6 bg-gradient-to-br from-primary via-primary to-primary/90"
     >
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-6 sm:mb-10">
@@ -38,7 +38,7 @@ export function CalendarSection() {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 sm:mb-4 text-balance">
             Agenda tu llamada de consultoría GRATIS
           </h2>
-          <p className="text-base sm:text-lg text-emerald-100 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-white/80 max-w-2xl mx-auto">
             En 15 minutos te mostramos cómo podemos llenar tu agenda
           </p>
         </div>
@@ -51,11 +51,11 @@ export function CalendarSection() {
 
               <div className="flex flex-wrap gap-2 sm:gap-3 mb-4 sm:mb-6">
                 <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-muted-foreground bg-slate-50 rounded-full px-3 py-1.5">
-                  <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600" />
+                  <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary" />
                   <span>15 min</span>
                 </div>
                 <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-muted-foreground bg-slate-50 rounded-full px-3 py-1.5">
-                  <Video className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600" />
+                  <Video className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary" />
                   <span>Videollamada</span>
                 </div>
               </div>
@@ -68,8 +68,8 @@ export function CalendarSection() {
               <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
                 {features.map((feature, index) => (
                   <div key={index} className="flex items-start gap-2.5 sm:gap-3">
-                    <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Check className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-emerald-600" />
+                    <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Check className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-primary" />
                     </div>
                     <span className="text-foreground text-sm sm:text-base leading-snug">{feature}</span>
                   </div>

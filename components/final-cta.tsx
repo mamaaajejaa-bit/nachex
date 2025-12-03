@@ -5,7 +5,7 @@ import { Shield, Clock, Sparkles, ArrowRight } from "lucide-react"
 
 export function FinalCTA() {
   return (
-    <section className="py-12 sm:py-20 px-4 sm:px-6 bg-gradient-to-b from-background via-emerald-50/30 to-emerald-50">
+    <section className="py-12 sm:py-20 px-4 sm:px-6 bg-gradient-to-b from-background via-primary/5 to-primary/10">
       <div className="max-w-3xl mx-auto text-center">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-foreground text-balance">
           ¿Listo para llenar tu consultorio de pacientes?
@@ -17,7 +17,7 @@ export function FinalCTA() {
 
         <Button
           size="lg"
-          className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white text-lg sm:text-lg px-6 sm:px-10 py-4 sm:py-7 h-auto rounded-xl shadow-xl shadow-emerald-600/25 mb-6 sm:mb-8 font-semibold transition-all group"
+          className="w-full sm:w-auto bg-primary hover:bg-primary/90 active:bg-primary text-white text-lg sm:text-lg px-6 sm:px-10 py-4 sm:py-7 h-auto rounded-xl shadow-xl shadow-primary/25 mb-6 sm:mb-8 font-semibold transition-all group"
           onClick={() => document.getElementById("calendar")?.scrollIntoView({ behavior: "smooth" })}
         >
           Agenda tu llamada GRATIS ahora
@@ -26,15 +26,15 @@ export function FinalCTA() {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
-            <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600" />
+            <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
             <span>Garantía de resultados</span>
           </div>
           <div className="flex items-center gap-2">
-            <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600" />
+            <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
             <span>Solo 15 minutos</span>
           </div>
           <div className="flex items-center gap-2">
-            <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600" />
+            <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
             <span>Sin compromiso</span>
           </div>
         </div>

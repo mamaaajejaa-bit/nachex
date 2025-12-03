@@ -125,7 +125,7 @@ function TestimonialCard({
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 opacity-90 group-hover:opacity-100 transition-opacity" />
 
-              <div className="absolute top-3 left-3 bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-lg">
+              <div className="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-lg">
                 {testimonial.result}
               </div>
 
@@ -180,7 +180,7 @@ function TestimonialCard({
           className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/20 transition-opacity duration-300 ${isPlaying ? "opacity-0" : "opacity-100"}`}
           onClick={togglePlay}
         >
-          <div className="absolute top-3 left-3 bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-lg">
+          <div className="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-lg">
             {testimonial.result}
           </div>
 
@@ -196,7 +196,7 @@ function TestimonialCard({
               aria-label="Reproducir testimonio"
             >
               <div className="w-14 h-14 sm:w-16 sm:h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 group-active:scale-95 transition-all duration-300">
-                <Play className="w-6 h-6 sm:w-7 sm:h-7 text-emerald-600 ml-1" fill="currentColor" />
+                <Play className="w-6 h-6 sm:w-7 sm:h-7 text-primary ml-1" fill="currentColor" />
               </div>
             </button>
           )}
@@ -322,7 +322,7 @@ export function Testimonials() {
           {testimonials.map((_, i) => (
             <div
               key={i}
-              className={`w-2 h-2 rounded-full transition-colors ${activeVideoIndex === i ? 'bg-emerald-600' : 'bg-emerald-200'
+              className={`w-2 h-2 rounded-full transition-colors ${activeVideoIndex === i ? 'bg-primary' : 'bg-primary/30'
                 }`}
             />
           ))}
