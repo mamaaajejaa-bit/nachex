@@ -26,11 +26,11 @@ export function HeroSection() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 sm:w-48 sm:h-48 bg-primary/30 blur-[50px] sm:blur-[60px] rounded-full pointer-events-none" />
           <div className="relative">
             <Image
-              src="/images/logo-growth-new.png"
+              src="/images/logo-growth.png"
               alt="Growth"
-              width={240}
-              height={68}
-              className="mx-auto h-16 sm:h-20 md:h-24 lg:h-28 w-auto drop-shadow-sm transition-all duration-300"
+              width={160}
+              height={45}
+              className="mx-auto h-10 sm:h-12 md:h-14 lg:h-16 w-auto drop-shadow-sm transition-all duration-300"
               priority
             />
           </div>
