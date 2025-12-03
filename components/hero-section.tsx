@@ -26,7 +26,7 @@ export function HeroSection() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 sm:w-32 sm:h-32 bg-primary/30 blur-[40px] sm:blur-[50px] rounded-full pointer-events-none" />
           <div className="relative">
             <Image
-              src="/images/logo-growth-new.png"
+              src="/images/logo-growth.png"
               alt="Growth"
               width={160}
               height={45}
