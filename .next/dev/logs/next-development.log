@@ -1,55 +1,48 @@
-[00:00:01.621] Server  LOG     
-[00:00:01.621] Server  LOG        We detected TypeScript in your project and reconfigured your tsconfig.json file for you.
-[00:00:01.621] Server  LOG        The following suggested values were added to your tsconfig.json. These values can be changed to fit your project's needs:
-
-[00:00:01.622] Server  LOG        	- include was updated to add '.next/dev/types/**/*.ts'
-[00:00:01.622] Server  LOG     
-[00:00:01.622] Server  LOG        The following mandatory changes were made to your tsconfig.json:
-
-[00:00:01.622] Server  LOG        	- jsx was set to react-jsx (next.js uses the React automatic runtime)
-[00:00:01.622] Server  LOG     
-[00:00:01.998] Server  LOG      ✓ Ready in 1360ms
-[00:00:36.519] Server  ERROR   C:\Users\genag\nachex\.next\dev\server\chunks\ssr\_25981ee8._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:36.520] Server  ERROR    ⨯ ReferenceError: useEffect is not defined
-[00:00:36.875] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:37.216] Browser ERROR   uncaughtError: ReferenceError: useEffect is not defined
-[00:01:07.584] Server  ERROR   C:\Users\genag\nachex\.next\dev\server\chunks\ssr\_25981ee8._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:01:07.585] Server  ERROR    ⨯ ReferenceError: useEffect is not defined
-[00:01:07.814] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:07.958] Browser ERROR   uncaughtError: ReferenceError: useEffect is not defined
-[00:01:51.896] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[00:01:52.212] Server  LOG      ✓ Compiled in 72ms
-[00:01:52.566] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:53.253] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:01:53.253] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:01:53.253] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1764694001928}
-[00:02:27.237] Server  LOG      ✓ Compiled in 65ms
-[00:02:27.342] Browser ERROR   ./components/testimonials.tsx:236:13
-Parsing ecmascript source code failed
-  234 |             Lo que dicen nuestros clientes
-  235 |           </h2>
-> 236 |           ))}
-      |             ^
-  237 |         </div>
-  238 |
-  239 |         {/* Indicadores de scroll en móvil */}
-
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+[00:00:00.784] Server  LOG      ✓ Ready in 481ms
+[00:00:26.310] Server  LOG      ○ Compiling / ...
+[00:00:29.837] Server  WARN     ⚠ [next]/internal/font/google/inter_952ac17b.module.css
+Error while requesting resource
+There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap
 
 Import trace:
   Server Component:
-    ./components/testimonials.tsx
-    ./app/page.tsx
-[00:03:16.602] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:03:17.184] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:03:17.184] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:03:17.184] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1764694085856}
-[00:03:48.367] Server  LOG      ✓ Compiled in 67ms
-[00:04:02.102] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:04:02.776] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:04:02.776] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:04:02.776] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1764694131456}
-[00:04:08.702] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:04:09.414] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:04:09.414] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:04:09.414] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1764694138089}
+    [next]/internal/font/google/inter_952ac17b.module.css
+    [next]/internal/font/google/inter_952ac17b.js
+    ./app/layout.tsx
+
+
+[00:00:29.846] Server  WARN     ⚠ [next]/internal/font/google/inter_952ac17b.module.css
+next/font: warning:
+Failed to download `Inter` from Google Fonts. Using fallback font instead.
+
+Import trace:
+  Server Component:
+    [next]/internal/font/google/inter_952ac17b.module.css
+    [next]/internal/font/google/inter_952ac17b.js
+    ./app/layout.tsx
+
+
+[00:00:31.712] Server  WARN     ⚠ [next]/internal/font/google/inter_952ac17b.module.css
+Error while requesting resource
+There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap
+
+Import trace:
+  Server Component:
+    [next]/internal/font/google/inter_952ac17b.module.css
+    [next]/internal/font/google/inter_952ac17b.js
+    ./app/layout.tsx
+
+
+[00:00:31.712] Server  WARN     ⚠ [next]/internal/font/google/inter_952ac17b.module.css
+next/font: warning:
+Failed to download `Inter` from Google Fonts. Using fallback font instead.
+
+Import trace:
+  Server Component:
+    [next]/internal/font/google/inter_952ac17b.module.css
+    [next]/internal/font/google/inter_952ac17b.js
+    ./app/layout.tsx
+
+
+[00:00:31.860] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:32.606] Browser LOG     [Vercel Web Analytics] Failed to load script from https://va.vercel-scripts.com/v1/script.debug.js. Please check if any ad blockers are enabled and try again.

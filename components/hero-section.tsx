@@ -28,10 +28,17 @@ export function HeroSection() {
             <Image
               src="/images/logo-growth.png"
               alt="Growth"
+<<<<<<< HEAD
               width={160}
               height={45}
               className="mx-auto h-10 sm:h-12 md:h-14 lg:h-16 w-auto drop-shadow-sm transition-all duration-300"
               style={{ filter: "brightness(0) saturate(100%) invert(38%) sepia(13%) saturate(1638%) hue-rotate(115deg) brightness(96%) contrast(88%)" }} // #649584
+=======
+              width={140}
+              height={40}
+              className="mx-auto h-8 sm:h-10 md:h-12 w-auto drop-shadow-sm"
+              style={{ filter: "brightness(0)" }} // negro
+>>>>>>> 2c8985cff8d97016edf608d0b16f555ce84f0040
               priority
             />
           </div>
