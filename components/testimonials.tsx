@@ -115,41 +115,42 @@ function TestimonialCard({
     return (
       <Dialog>
         <DialogTrigger asChild>
-          <Card className="flex-shrink-0 w-[280px] sm:w-auto snap-center overflow-hidden bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer group">
+          <Card className="flex-shrink-0 w-[260px] xs:w-[280px] sm:w-auto snap-center overflow-hidden bg-white border border-slate-200 rounded-xl sm:rounded-2xl shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer group">
             <div className="relative aspect-[9/16] sm:aspect-[9/14] bg-black">
               <Image
                 src={testimonial.imageUrl!}
                 alt={testimonial.name}
                 fill
                 className="object-cover"
+                sizes="(max-width: 640px) 260px, (max-width: 1024px) 50vw, 33vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 opacity-90 group-hover:opacity-100 transition-opacity" />
 
-              <div className="absolute top-3 left-3 bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-lg">
+              <div className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-emerald-600 text-white text-[10px] sm:text-xs font-bold px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full shadow-lg">
                 {testimonial.result}
               </div>
 
-              <div className="absolute top-3 right-3 flex gap-0.5">
+              <div className="absolute top-2 right-2 sm:top-3 sm:right-3 flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+                  <Star key={i} className="w-2.5 h-2.5 sm:w-3 sm:h-3 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
 
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="bg-black/50 p-3 rounded-full backdrop-blur-sm">
-                  <Maximize2 className="w-6 h-6 text-white" />
+                <div className="bg-black/50 p-2.5 sm:p-3 rounded-full backdrop-blur-sm">
+                  <Maximize2 className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
               </div>
 
-              <div className="absolute bottom-0 left-0 right-0 p-4">
-                <div className="font-semibold text-white text-sm">{testimonial.name}</div>
-                <div className="text-white/80 text-xs">{testimonial.role}</div>
+              <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+                <div className="font-semibold text-white text-xs sm:text-sm">{testimonial.name}</div>
+                <div className="text-white/80 text-[10px] sm:text-xs">{testimonial.role}</div>
               </div>
             </div>
           </Card>
         </DialogTrigger>
-        <DialogContent className="max-w-3xl p-0 overflow-hidden bg-transparent border-none shadow-none">
-          <div className="relative w-full h-[80vh]">
+        <DialogContent className="max-w-[95vw] sm:max-w-3xl p-0 overflow-hidden bg-transparent border-none shadow-none">
+          <div className="relative w-full h-[70vh] sm:h-[80vh]">
             <Image
               src={testimonial.imageUrl!}
               alt={testimonial.name}
@@ -163,7 +164,7 @@ function TestimonialCard({
   }
 
   return (
-    <Card className="flex-shrink-0 w-[280px] sm:w-auto snap-center overflow-hidden bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+    <Card className="flex-shrink-0 w-[260px] xs:w-[280px] sm:w-auto snap-center overflow-hidden bg-white border border-slate-200 rounded-xl sm:rounded-2xl shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
       <div className="relative aspect-[9/16] sm:aspect-[9/14] bg-black">
         <video
           ref={videoRef}
@@ -180,13 +181,13 @@ function TestimonialCard({
           className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/20 transition-opacity duration-300 ${isPlaying ? "opacity-0" : "opacity-100"}`}
           onClick={togglePlay}
         >
-          <div className="absolute top-3 left-3 bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-lg">
+          <div className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-emerald-600 text-white text-[10px] sm:text-xs font-bold px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full shadow-lg">
             {testimonial.result}
           </div>
 
-          <div className="absolute top-3 right-3 flex gap-0.5">
+          <div className="absolute top-2 right-2 sm:top-3 sm:right-3 flex gap-0.5">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+              <Star key={i} className="w-2.5 h-2.5 sm:w-3 sm:h-3 fill-yellow-400 text-yellow-400" />
             ))}
           </div>
 
@@ -195,44 +196,44 @@ function TestimonialCard({
               className="absolute inset-0 flex items-center justify-center group"
               aria-label="Reproducir testimonio"
             >
-              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 group-active:scale-95 transition-all duration-300">
-                <Play className="w-6 h-6 sm:w-7 sm:h-7 text-emerald-600 ml-1" fill="currentColor" />
+              <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 group-active:scale-95 transition-all duration-300">
+                <Play className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-emerald-600 ml-0.5" fill="currentColor" />
               </div>
             </button>
           )}
 
-          <div className="absolute bottom-0 left-0 right-0 p-4">
-            <div className="font-semibold text-white text-sm">{testimonial.name}</div>
-            <div className="text-white/80 text-xs">{testimonial.role}</div>
+          <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+            <div className="font-semibold text-white text-xs sm:text-sm">{testimonial.name}</div>
+            <div className="text-white/80 text-[10px] sm:text-xs">{testimonial.role}</div>
           </div>
         </div>
 
         {isPlaying && (
-          <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
+          <div className="absolute bottom-0 left-0 right-0 p-2.5 sm:p-3 bg-gradient-to-t from-black/80 to-transparent">
             <div className="flex items-center justify-between">
               <div className="flex-1">
-                <div className="font-semibold text-white text-xs">{testimonial.name}</div>
+                <div className="font-semibold text-white text-[10px] sm:text-xs">{testimonial.name}</div>
               </div>
-              <div className="flex gap-1.5">
+              <div className="flex gap-1 sm:gap-1.5">
                 <button
                   onClick={(e) => {
                     e.stopPropagation()
                     togglePlay()
                   }}
-                  className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
+                  className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
                   aria-label="Pausar"
                 >
-                  <Pause className="w-4 h-4 text-white" fill="white" />
+                  <Pause className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" fill="white" />
                 </button>
                 <button
                   onClick={(e) => {
                     e.stopPropagation()
                     toggleMute()
                   }}
-                  className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
+                  className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
                   aria-label={isMuted ? "Activar sonido" : "Silenciar"}
                 >
-                  {isMuted ? <VolumeX className="w-4 h-4 text-white" /> : <Volume2 className="w-4 h-4 text-white" />}
+                  {isMuted ? <VolumeX className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" /> : <Volume2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />}
                 </button>
               </div>
             </div>
@@ -298,16 +299,16 @@ export function Testimonials() {
   }, [activeVideoIndex])
 
   return (
-    <section ref={sectionRef} className="py-10 sm:py-16 px-4 sm:px-6 bg-background">
+    <section ref={sectionRef} className="py-8 sm:py-12 md:py-16 px-3 sm:px-4 md:px-6 bg-background">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 text-foreground">
+        <div className="text-center mb-6 sm:mb-8 md:mb-12">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 sm:mb-3 text-foreground">
             Lo que dicen nuestros clientes
           </h2>
-          <p className="text-base sm:text-lg text-muted-foreground">Resultados reales de dentistas como tú</p>
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground">Resultados reales de dentistas como tú</p>
         </div>
 
-        <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory sm:overflow-visible sm:pb-0 sm:grid sm:grid-cols-2 lg:grid-cols-3 -mx-4 px-4 sm:mx-0 sm:px-0">
+        <div className="flex gap-3 sm:gap-4 overflow-x-auto pb-4 snap-x snap-mandatory sm:overflow-visible sm:pb-0 sm:grid sm:grid-cols-2 lg:grid-cols-3 -mx-3 px-3 sm:mx-0 sm:px-0 scrollbar-hide">
           {testimonials.map((testimonial, index) => (
             <div key={index} ref={(el) => { videoRefs.current[index] = el }}>
               <TestimonialCard
@@ -322,7 +323,7 @@ export function Testimonials() {
           {testimonials.map((_, i) => (
             <div
               key={i}
-              className={`w-2 h-2 rounded-full transition-colors ${activeVideoIndex === i ? 'bg-emerald-600' : 'bg-emerald-200'
+              className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-colors ${activeVideoIndex === i ? 'bg-emerald-600' : 'bg-emerald-200'
                 }`}
             />
           ))}

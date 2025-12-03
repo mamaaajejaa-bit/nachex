@@ -1,48 +1,17 @@
-[00:00:00.784] Server  LOG      ✓ Ready in 481ms
-[00:00:26.310] Server  LOG      ○ Compiling / ...
-[00:00:29.837] Server  WARN     ⚠ [next]/internal/font/google/inter_952ac17b.module.css
-Error while requesting resource
-There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/inter_952ac17b.module.css
-    [next]/internal/font/google/inter_952ac17b.js
-    ./app/layout.tsx
-
-
-[00:00:29.846] Server  WARN     ⚠ [next]/internal/font/google/inter_952ac17b.module.css
-next/font: warning:
-Failed to download `Inter` from Google Fonts. Using fallback font instead.
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/inter_952ac17b.module.css
-    [next]/internal/font/google/inter_952ac17b.js
-    ./app/layout.tsx
-
-
-[00:00:31.712] Server  WARN     ⚠ [next]/internal/font/google/inter_952ac17b.module.css
-Error while requesting resource
-There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/inter_952ac17b.module.css
-    [next]/internal/font/google/inter_952ac17b.js
-    ./app/layout.tsx
-
-
-[00:00:31.712] Server  WARN     ⚠ [next]/internal/font/google/inter_952ac17b.module.css
-next/font: warning:
-Failed to download `Inter` from Google Fonts. Using fallback font instead.
-
-Import trace:
-  Server Component:
-    [next]/internal/font/google/inter_952ac17b.module.css
-    [next]/internal/font/google/inter_952ac17b.js
-    ./app/layout.tsx
-
-
-[00:00:31.860] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:32.606] Browser LOG     [Vercel Web Analytics] Failed to load script from https://va.vercel-scripts.com/v1/script.debug.js. Please check if any ad blockers are enabled and try again.
+[00:00:00.717] Server  LOG      ✓ Ready in 422ms
+[00:00:22.973] Server  LOG      ○ Compiling / ...
+[00:00:40.304] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:41.034] Browser LOG     [Vercel Web Analytics] Failed to load script from https://va.vercel-scripts.com/v1/script.debug.js. Please check if any ad blockers are enabled and try again.
+[00:02:05.030] Server  LOG      ✓ Compiled in 237ms
+[00:02:38.958] Server  LOG      ✓ Compiled in 192ms
+[00:03:16.850] Server  LOG      ✓ Compiled in 184ms
+[00:03:40.734] Server  LOG      ✓ Compiled in 213ms
+[00:04:03.092] Server  LOG      ✓ Compiled in 260ms
+[00:04:54.115] Server  LOG      ✓ Compiled in 184ms
+[00:05:21.536] Server  LOG      ✓ Compiled in 141ms
+[00:06:10.472] Server  LOG      ✓ Compiled in 192ms
+[00:07:09.332] Server  LOG      ✓ Compiled in 151ms
+[00:07:51.988] Server  LOG      ✓ Compiled in 132ms
+[00:08:21.245] Server  LOG      ✓ Compiled in 112ms
+[00:08:47.717] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:08:48.102] Browser LOG     [Vercel Web Analytics] Failed to load script from https://va.vercel-scripts.com/v1/script.debug.js. Please check if any ad blockers are enabled and try again.

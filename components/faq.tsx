@@ -35,26 +35,26 @@ export function FAQ() {
   ]
 
   return (
-    <section className="py-10 sm:py-16 px-4 sm:px-6 bg-slate-50/80">
+    <section className="py-8 sm:py-12 md:py-16 px-3 sm:px-4 md:px-6 bg-slate-50/80">
       <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-6 sm:mb-10">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 text-foreground">
+        <div className="text-center mb-5 sm:mb-6 md:mb-10">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-1.5 sm:mb-2 md:mb-3 text-foreground">
             Preguntas frecuentes
           </h2>
-          <p className="text-base sm:text-lg text-muted-foreground">Todo lo que necesitas saber antes de empezar</p>
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground">Todo lo que necesitas saber antes de empezar</p>
         </div>
 
-        <Accordion type="single" collapsible className="space-y-2 sm:space-y-3">
+        <Accordion type="single" collapsible className="space-y-1.5 sm:space-y-2 md:space-y-3">
           {faqs.map((faq, index) => (
             <AccordionItem
               key={index}
               value={`item-${index}`}
-              className="bg-white border border-slate-200 rounded-xl px-4 sm:px-5 data-[state=open]:border-emerald-300 data-[state=open]:shadow-sm transition-all"
+              className="bg-white border border-slate-200 rounded-lg sm:rounded-xl px-3 sm:px-4 md:px-5 data-[state=open]:border-emerald-300 data-[state=open]:shadow-sm transition-all"
             >
-              <AccordionTrigger className="text-left font-semibold hover:no-underline text-foreground py-3.5 sm:py-4 text-sm sm:text-base [&>svg]:w-4 [&>svg]:h-4 [&>svg]:text-emerald-600">
+              <AccordionTrigger className="text-left font-semibold hover:no-underline text-foreground py-3 sm:py-3.5 md:py-4 text-xs sm:text-sm md:text-base [&>svg]:w-3.5 [&>svg]:h-3.5 sm:[&>svg]:w-4 sm:[&>svg]:h-4 [&>svg]:text-emerald-600 [&>svg]:flex-shrink-0">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground text-sm sm:text-base pb-3.5 sm:pb-4 leading-relaxed">
+              <AccordionContent className="text-muted-foreground text-xs sm:text-sm md:text-base pb-3 sm:pb-3.5 md:pb-4 leading-relaxed">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>

@@ -127,24 +127,69 @@
 html {
   scroll-behavior: smooth;
   -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* Safe area support for modern devices */
 @supports (padding-bottom: env(safe-area-inset-bottom)) {
   body {
     padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
   }
 }
 
-.snap-x {
+/* Hide scrollbar for horizontal scrolling containers */
+.snap-x,
+.scrollbar-hide {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
-.snap-x::-webkit-scrollbar {
+.snap-x::-webkit-scrollbar,
+.scrollbar-hide::-webkit-scrollbar {
   display: none;
+}
+
+/* Smooth scroll momentum on iOS */
+.overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
 }
 
 button {
   -webkit-tap-highlight-color: transparent;
+}
+
+/* Responsive text improvements */
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Better image rendering */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive iframe container */
+.iframe-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  overflow: hidden;
+}
+
+.iframe-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 /* Animaciones suaves en scroll y fade-in para todos los elementos */
