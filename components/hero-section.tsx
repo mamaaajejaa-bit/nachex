@@ -20,7 +20,7 @@ export function HeroSection() {
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-5 sm:px-6 pt-2 sm:pt-4 pb-2 sm:pb-4 text-center">
+      <div className="max-w-4xl mx-auto px-5 sm:px-6 pt-0 pb-0 text-center">
         {/* Logo mejorado con Glow */}
         <div className="-mb-12 relative animate-in fade-in zoom-in duration-700">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 sm:w-48 sm:h-48 bg-primary/30 blur-[50px] sm:blur-[60px] rounded-full pointer-events-none" />
