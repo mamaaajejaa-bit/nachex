@@ -28,8 +28,8 @@ export function HeroSection() {
             <Image
               src="/images/logo-growth.png"
               alt="Growth"
-              width={160}
-              height={45}
+              width={360}
+              height={100}
               className="mx-auto h-10 sm:h-12 md:h-14 lg:h-16 w-auto drop-shadow-sm transition-all duration-300"
               priority
             />
