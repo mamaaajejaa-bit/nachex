@@ -12,7 +12,7 @@ export function FinalCTA() {
         </h2>
 
         <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8 max-w-xl mx-auto leading-relaxed">
-          Únete a +200 dentistas que ya están creciendo con nosotros. La llamada es 100% gratis y sin compromiso.
+          Únete a +80 dentistas que ya están creciendo con nosotros. La llamada es 100% gratis y sin compromiso.
         </p>
 
         <Button
