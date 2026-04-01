@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     "Te llenamos el consultorio con +50 pacientes nuevos al mes, sin que tú respondas un solo mensaje. Sistema probado por +200 dentistas.",
   keywords: "marketing dental, pacientes nuevos dentista, publicidad odontologos, growth",
   generator: "Gena bien crack bien papux",
+  other: {
+    "facebook-domain-verification": "qg7mrsu3bm853h536gr8f2oqe95tli",
+  },
 }
 
 export const viewport = {
